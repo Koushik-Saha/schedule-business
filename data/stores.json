@@ -1,0 +1,62 @@
+[
+  {
+    "id": "maxsb01",
+    "slug": "max-phone-repair-la-cumbre",
+    "name": "Max Phone Repair & Accessories",
+    "locationName": "La Cumbre Plaza",
+    "address": "110 S Hope Ave Ste. H123, Santa Barbara, CA 93105",
+    "phone": "(818) 402-4931",
+    "email": "sb@maxphonefix.com",
+    "imageUrl": "/images/store-exterior.png",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3291.565355440!2d-119.742!3d34.437!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e940f8c0!2sMax%20Phone%20Repair!5e0!3m2!1sen!2sus!4v1712770000000!5m2!1sen!2sus",
+    "theme": {
+      "primary": "#0f172a",
+      "secondary": "#334155",
+      "font": "Inter",
+      "accent": "#3b82f6"
+    },
+    "services": [
+      { "id": "1", "name": "iPhone Screen Repair", "price": "$89.99" },
+      { "id": "2", "name": "Battery Replacement", "price": "$49.99" }
+    ],
+    "hours": {
+      "monday": "10:00 a.m. - 8:00 p.m.",
+      "tuesday": "10:00 a.m. - 8:00 p.m.",
+      "wednesday": "10:00 a.m. - 8:00 p.m.",
+      "thursday": "10:00 a.m. - 8:00 p.m.",
+      "friday": "10:00 a.m. - 8:00 p.m.",
+      "saturday": "10:00 a.m. - 8:00 p.m.",
+      "sunday": "11:00 a.m. - 7:00 p.m."
+    }
+  },
+  {
+    "id": "maxlv01",
+    "slug": "max-phone-repair-las-vegas",
+    "name": "Max Phone Repair & Accessories",
+    "locationName": "Las Vegas Blvd",
+    "address": "7400 Las Vegas Blvd S Unit TT38, Las Vegas, NV 89123",
+    "phone": "(424) 406-6202",
+    "email": "maxlv@maxphonefix.com",
+    "imageUrl": "/images/store-interior.png",
+    "mapUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3600.0!2d-115.172!3d36.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0!2sMax%20Phone%20Repair!5e0!3m2!1sen!2sus!4v1712770000000!5m2!1sen!2sus",
+    "theme": {
+      "primary": "#450a0a",
+      "secondary": "#7f1d1d",
+      "font": "Outfit",
+      "accent": "#dc2626"
+    },
+    "services": [
+      { "id": "1", "name": "Samsung Screen Repair", "price": "$109.99" },
+      { "id": "2", "name": "Charging Port Fix", "price": "$59.99" }
+    ],
+    "hours": {
+      "monday": "10:00 a.m. - 8:00 p.m.",
+      "tuesday": "10:00 a.m. - 8:00 p.m.",
+      "wednesday": "10:00 a.m. - 8:00 p.m.",
+      "thursday": "10:00 a.m. - 8:00 p.m.",
+      "friday": "10:00 a.m. - 8:00 p.m.",
+      "saturday": "10:00 a.m. - 8:00 p.m.",
+      "sunday": "11:00 a.m. - 7:00 p.m."
+    }
+  }
+]

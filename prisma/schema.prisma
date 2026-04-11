@@ -1,0 +1,51 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Store {
+  id                String   @id @default(cuid())
+  slug              String   @unique
+  name              String
+  locationName      String
+  address           String
+  phone             String
+  email             String
+  imageUrl          String
+  mapUrl            String
+  theme             Json     // { primary, secondary, font, accent }
+  services          Json     // List of { id, name, price }
+  hours             Json     // { monday, tuesday, ... }
+  notificationEmail String?  // Where booking emails are sent
+  latitude          Float?
+  longitude         Float?
+  appointments      Appointment[]
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+model Appointment {
+  id              String   @id @default(cuid())
+  storeId         String
+  store           Store    @relation(fields: [storeId], references: [id])
+  customerName    String
+  customerPhone   String
+  customerEmail   String   // New field
+  phoneModel      String   // New field
+  issue           String
+  date            DateTime
+  time            String
+  status          String   @default("pending")
+  createdAt       DateTime @default(now())
+}
+
+model Admin {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String   // Hashed password
+  createdAt DateTime @default(now())
+}
