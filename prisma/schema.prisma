@@ -45,7 +45,8 @@ model Appointment {
 
 model Admin {
   id        String   @id @default(cuid())
-  username  String   @unique
-  password  String   // Hashed password
+  email     String   @unique
+  name      String
+  password  String
   createdAt DateTime @default(now())
 }

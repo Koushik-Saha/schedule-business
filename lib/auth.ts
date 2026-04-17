@@ -1,22 +1,29 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { prisma } from "./prisma"
+import bcrypt from "bcryptjs"
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
     Credentials({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text" },
+        email: { label: "Email", type: "email" },
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        // For demonstration, use a simple check or look up in DB
-        // In a real app, use bcrypt to compare hashed passwords
-        if (credentials.username === "admin" && credentials.password === "admin123") {
-          return { id: "1", name: "Admin", username: "admin" }
-        }
-        return null
+        if (!credentials?.email || !credentials?.password) return null
+
+        const admin = await prisma.admin.findUnique({
+          where: { email: credentials.email as string }
+        })
+
+        if (!admin) return null
+
+        const valid = await bcrypt.compare(credentials.password as string, admin.password)
+        if (!valid) return null
+
+        return { id: admin.id, name: admin.name, email: admin.email }
       }
     })
   ],
@@ -27,10 +34,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user
       const isOnAdmin = nextUrl.pathname.startsWith("/admin")
-      
       if (isOnAdmin) {
         if (isLoggedIn) return true
-        return false // Redirect unauthenticated users to login page
+        return false
       }
       return true
     },
