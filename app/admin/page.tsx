@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getStores } from '@/lib/storeService';
 import Link from 'next/link';
 import React from 'react';
