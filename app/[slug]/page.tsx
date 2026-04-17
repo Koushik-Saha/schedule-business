@@ -1,4 +1,4 @@
-import { getStoreBySlug, getStores } from '@/lib/storeService';
+import { getStoreBySlug } from '@/lib/storeService';
 import { notFound } from 'next/navigation';
 import Hero from '@/components/store/Hero';
 import ServiceList from '@/components/store/ServiceList';
@@ -6,13 +6,13 @@ import StoreMap from '@/components/store/StoreMap';
 import StoreHoursList from '@/components/store/StoreHours';
 import BookingSection from '@/components/store/BookingSection';
 import Navbar from '@/components/store/Navbar';
+import ProductsSection from '@/components/store/ProductsSection';
 import React from 'react';
 import { MapPin, Phone, Mail } from 'lucide-react';
 
 export default async function StorePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const store = await getStoreBySlug(slug);
-  const allStores = await getStores();
 
   if (!store) {
     notFound();
@@ -20,7 +20,7 @@ export default async function StorePage({ params }: { params: Promise<{ slug: st
 
   return (
     <main style={{ minHeight: '100vh', paddingBottom: '4rem', background: '#ffffff' }}>
-      <Navbar allStores={allStores} />
+      <Navbar />
       <Hero 
         name={store.name}
         location={store.locationName}
@@ -29,9 +29,12 @@ export default async function StorePage({ params }: { params: Promise<{ slug: st
         imageUrl={store.imageUrl}
       />
       
-      <div style={{ maxWidth: '1000px', margin: '0 auto', padding: '0 2rem' }}>
-        <ServiceList services={store.services} />
-        
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '0 2rem' }}>
+        <div id="products">
+          <ServiceList services={store.services} />
+          <ProductsSection />
+        </div>
+
         <BookingSection storeName={store.name} storeSlug={store.slug} />
 
         <div id="contacts" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', margin: '6rem 0', alignItems: 'start' }}>
