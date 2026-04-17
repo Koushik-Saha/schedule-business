@@ -2,16 +2,17 @@ import { getStores } from '@/lib/storeService';
 import Link from 'next/link';
 import React from 'react';
 import { Plus, ExternalLink, Edit } from 'lucide-react';
+import NotificationEmailEditor from '@/components/admin/NotificationEmailEditor';
 
 export default async function AdminDashboard() {
   const stores = await getStores();
 
   return (
-    <div style={{ maxWidth: '1000px', margin: '4rem auto', padding: '2rem', fontFamily: 'Inter, sans-serif' }}>
+    <div style={{ maxWidth: '1100px', margin: '4rem auto', padding: '2rem', fontFamily: 'Inter, sans-serif' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '3rem' }}>
         <div>
           <h1 style={{ fontSize: '2.5rem', fontWeight: 800 }}>Store Management</h1>
-          <p style={{ color: '#64748b' }}>Manage your {stores.length} store websites</p>
+          <p style={{ color: '#64748b' }}>Managing {stores.length} store websites</p>
         </div>
         <Link href="/admin/new" style={{
           background: '#3b82f6',
@@ -22,14 +23,14 @@ export default async function AdminDashboard() {
           alignItems: 'center',
           gap: '0.5rem',
           fontWeight: 600,
-          transition: 'transform 0.2s'
+          textDecoration: 'none',
         }}>
           <Plus size={20} />
           <span>Add New Store</span>
         </Link>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))', gap: '2rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))', gap: '2rem' }}>
         {stores.map((store) => (
           <div key={store.id} style={{
             background: 'white',
@@ -42,10 +43,25 @@ export default async function AdminDashboard() {
             gap: '1rem'
           }}>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-              <h2 style={{ fontSize: '1.25rem', fontWeight: 700 }}>{store.name}</h2>
-              <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: store.theme.primary }} />
+              <div>
+                <h2 style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '0.2rem' }}>{store.name}</h2>
+                <p style={{ color: '#64748b', fontSize: '0.85rem' }}>{store.locationName}</p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <div style={{ width: '20px', height: '20px', borderRadius: '50%', background: store.theme.primary, border: '2px solid #e2e8f0' }} />
+                <span style={{ fontSize: '0.75rem', fontFamily: 'monospace', background: '#f1f5f9', padding: '0.2rem 0.5rem', borderRadius: '0.3rem', color: '#475569' }}>
+                  /{store.slug}
+                </span>
+              </div>
             </div>
-            <p style={{ color: '#64748b', fontSize: '0.9rem' }}>{store.locationName}</p>
+
+            <div style={{ fontSize: '0.85rem', color: '#475569', display: 'grid', gap: '0.25rem' }}>
+              <p style={{ margin: 0 }}><strong>Phone:</strong> {store.phone || <span style={{ color: '#94a3b8' }}>Not set</span>}</p>
+              <p style={{ margin: 0 }}><strong>Store email:</strong> {store.email}</p>
+            </div>
+
+            <NotificationEmailEditor storeSlug={store.slug} currentEmail={store.notificationEmail || ''} />
+
             <div style={{ marginTop: 'auto', display: 'flex', gap: '0.75rem' }}>
               <Link href={`/${store.slug}`} target="_blank" style={{
                 flex: 1,
@@ -57,10 +73,12 @@ export default async function AdminDashboard() {
                 borderRadius: '0.5rem',
                 border: '1px solid #e2e8f0',
                 fontWeight: 600,
-                fontSize: '0.85rem'
+                fontSize: '0.85rem',
+                textDecoration: 'none',
+                color: '#0f172a',
               }}>
                 <ExternalLink size={14} />
-                <span>Visit Store</span>
+                <span>Visit</span>
               </Link>
               <Link href={`/admin/edit/${store.slug}`} style={{
                 flex: 1,
@@ -74,10 +92,11 @@ export default async function AdminDashboard() {
                 border: '1px solid #e2e8f0',
                 fontWeight: 600,
                 fontSize: '0.85rem',
-                color: '#0f172a'
+                color: '#0f172a',
+                textDecoration: 'none',
               }}>
                 <Edit size={14} />
-                <span>Edit</span>
+                <span>Full Edit</span>
               </Link>
             </div>
           </div>

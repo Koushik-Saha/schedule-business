@@ -28,7 +28,7 @@ export default function NewStorePage() {
       <form action={createStoreAction} style={{ display: 'grid', gap: '2rem', background: '#f8fafc', padding: '3rem', borderRadius: '2rem', border: '1px solid #e2e8f0' }}>
         <section style={{ display: 'grid', gap: '1.5rem' }}>
           <h3 style={{ fontWeight: 700, fontSize: '1.5rem', marginBottom: '0.5rem' }}>Basic Information</h3>
-          <div style={{ display: 'grid', gap: '1.5rem', gridTemplateColumns: '1fr 1fr' }}>
+          <div style={{ display: 'grid', gap: '1.5rem', gridTemplateColumns: '1fr 1fr 1fr' }}>
             <div style={{ display: 'grid', gap: '0.5rem' }}>
               <label style={{ fontWeight: 600 }}>Business Name</label>
               <input name="name" required placeholder="e.g. Max Phone Repair" style={{ padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid #cbd5e1' }} />
@@ -36,6 +36,10 @@ export default function NewStorePage() {
             <div style={{ display: 'grid', gap: '0.5rem' }}>
               <label style={{ fontWeight: 600 }}>Location Name</label>
               <input name="locationName" required placeholder="e.g. Santa Barbara" style={{ padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid #cbd5e1' }} />
+            </div>
+            <div style={{ display: 'grid', gap: '0.5rem' }}>
+              <label style={{ fontWeight: 600 }}>Store ID (used in URL slug)</label>
+              <input name="storeId" placeholder="e.g. maxsb01" style={{ padding: '0.75rem', borderRadius: '0.5rem', border: '1px solid #cbd5e1' }} />
             </div>
           </div>
 

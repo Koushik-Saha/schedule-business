@@ -1,8 +1,11 @@
 'use server';
 
-import { addStore, updateStore, Store } from './storeService';
+import { redirect } from 'next/navigation';
+import { Resend } from 'resend';
+import { prisma } from './prisma';
+import { addStore, updateStore } from './storeService';
 
-// ... existing code ...
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function updateStoreAction(formData: FormData, storeSlug: string) {
   const name = formData.get('name') as string;
@@ -47,15 +50,18 @@ export async function updateStoreAction(formData: FormData, storeSlug: string) {
 
   redirect(`/admin`);
 }
-import { prisma } from './prisma';
-import { redirect } from 'next/navigation';
-import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+export async function updateNotificationEmailAction(storeSlug: string, email: string) {
+  await prisma.store.update({
+    where: { slug: storeSlug },
+    data: { notificationEmail: email },
+  });
+}
 
 export async function createStoreAction(formData: FormData) {
   const name = formData.get('name') as string;
   const locationName = formData.get('locationName') as string;
+  const storeId = (formData.get('storeId') as string)?.trim().toLowerCase();
   const address = formData.get('address') as string;
   const phone = formData.get('phone') as string;
   const email = formData.get('email') as string;
@@ -79,7 +85,10 @@ export async function createStoreAction(formData: FormData) {
     sunday: formData.get('sunday') as string,
   };
 
-  const slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-' + locationName.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  const nameSlug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const slug = storeId
+    ? `${nameSlug}-${storeId}`
+    : `${nameSlug}-${locationName.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
 
   await addStore({
     slug,
@@ -122,7 +131,6 @@ export async function bookAppointmentAction(formData: FormData, storeSlug: strin
 
   if (!store) throw new Error("Store not found");
 
-  // Save to DB
   await prisma.appointment.create({
     data: {
       storeId: store.id,
@@ -136,7 +144,6 @@ export async function bookAppointmentAction(formData: FormData, storeSlug: strin
     }
   });
 
-  // Send Email via Resend
   if (store.notificationEmail) {
     try {
       await resend.emails.send({
@@ -146,7 +153,7 @@ export async function bookAppointmentAction(formData: FormData, storeSlug: strin
         html: `
           <div style="font-family: sans-serif; max-width: 600px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px;">
             <h1 style="color: #0f172a; margin-bottom: 24px;">New Appointment Request</h1>
-            
+
             <div style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 24px;">
               <p style="margin: 8px 0;"><strong>Store:</strong> ${store.name} (${store.locationName})</p>
               <p style="margin: 8px 0;"><strong>Date:</strong> ${date}</p>
