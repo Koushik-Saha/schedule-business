@@ -1,5 +1,5 @@
 import { prisma } from './prisma';
-import { Prisma } from '@prisma/client';
+import { Prisma, Store as PrismaStore } from '@prisma/client';
 
 export interface StoreTheme {
   primary: string;
@@ -46,7 +46,7 @@ export async function getStores(): Promise<Store[]> {
   const stores = await prisma.store.findMany({
     orderBy: { createdAt: 'desc' },
   });
-  return stores.map(s => ({
+  return stores.map((s: PrismaStore) => ({
     ...s,
     theme: s.theme as unknown as StoreTheme,
     services: s.services as unknown as StoreServiceItem[],
