@@ -44,21 +44,21 @@ export default async function StorePage({ params }: { params: Promise<{ slug: st
             
             <div style={{ marginTop: '2rem', display: 'grid', gap: '1rem' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{ background: '#f1f5f9', p: '0.5rem', borderRadius: '0.5rem', display: 'flex', padding: '0.5rem' }}>
+                <div style={{ background: '#f1f5f9', borderRadius: '0.5rem', display: 'flex', padding: '0.5rem' }}>
                   <MapPin size={20} style={{ color: '#64748b' }} />
                 </div>
                 <p style={{ color: '#1e293b', fontSize: '1.1rem', margin: 0 }}>{store.address}</p>
               </div>
 
               <a href={`tel:${store.phone}`} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ background: '#f1f5f9', p: '0.5rem', borderRadius: '0.5rem', display: 'flex', padding: '0.5rem' }}>
+                <div style={{ background: '#f1f5f9', borderRadius: '0.5rem', display: 'flex', padding: '0.5rem' }}>
                   <Phone size={20} style={{ color: '#3b82f6' }} />
                 </div>
                 <p style={{ color: '#3b82f6', fontSize: '1.1rem', fontWeight: 600, margin: 0 }}>{store.phone}</p>
               </a>
 
               <a href={`mailto:${store.email}`} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none' }}>
-                <div style={{ background: '#f1f5f9', p: '0.5rem', borderRadius: '0.5rem', display: 'flex', padding: '0.5rem' }}>
+                <div style={{ background: '#f1f5f9', borderRadius: '0.5rem', display: 'flex', padding: '0.5rem' }}>
                   <Mail size={20} style={{ color: '#64748b' }} />
                 </div>
                 <p style={{ color: '#1e293b', fontSize: '1.1rem', margin: 0 }}>{store.email}</p>
