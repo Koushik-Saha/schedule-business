@@ -21,7 +21,7 @@ export interface StoreHours {
 export interface StoreServiceItem {
   id: string;
   name: string;
-  price: string;
+  price?: string;
 }
 
 export interface Store {

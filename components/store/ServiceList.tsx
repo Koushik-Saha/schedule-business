@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 interface Service {
   id: string;
   name: string;
-  price: string;
+  price?: string;
 }
 
 interface ServiceListProps {
@@ -44,15 +44,6 @@ export default function ServiceList({ services }: ServiceListProps) {
             }}
           >
             <span style={{ fontWeight: 600, fontSize: '1.1rem' }}>{service.name}</span>
-            <span style={{ 
-              background: 'var(--accent)', 
-              color: 'white', 
-              padding: '0.5rem 1rem', 
-              borderRadius: '2rem',
-              fontWeight: 700
-            }}>
-              {service.price}
-            </span>
           </motion.div>
         ))}
       </div>

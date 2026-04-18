@@ -9,8 +9,6 @@ const products = [
     id: 'p1',
     name: 'Tempered Glass Screen Protector',
     category: 'Protection',
-    price: '$9.99',
-    originalPrice: '$19.99',
     rating: 4.8,
     reviews: 124,
     badge: 'Best Seller',
@@ -22,8 +20,6 @@ const products = [
     id: 'p2',
     name: 'MagSafe Wireless Charger 15W',
     category: 'Charging',
-    price: '$24.99',
-    originalPrice: '$39.99',
     rating: 4.7,
     reviews: 89,
     badge: 'Sale',
@@ -35,8 +31,6 @@ const products = [
     id: 'p3',
     name: 'Heavy Duty Phone Case',
     category: 'Cases',
-    price: '$14.99',
-    originalPrice: null,
     rating: 4.9,
     reviews: 210,
     badge: 'Top Rated',
@@ -48,8 +42,6 @@ const products = [
     id: 'p4',
     name: 'USB-C Fast Charging Cable 6ft',
     category: 'Cables',
-    price: '$7.99',
-    originalPrice: '$12.99',
     rating: 4.6,
     reviews: 178,
     badge: null,
@@ -61,8 +53,6 @@ const products = [
     id: 'p5',
     name: 'Portable Power Bank 20,000mAh',
     category: 'Power',
-    price: '$34.99',
-    originalPrice: '$59.99',
     rating: 4.8,
     reviews: 95,
     badge: 'Popular',
@@ -74,8 +64,6 @@ const products = [
     id: 'p6',
     name: 'Lightning to USB-C Adapter',
     category: 'Adapters',
-    price: '$5.99',
-    originalPrice: null,
     rating: 4.5,
     reviews: 67,
     badge: null,
@@ -187,14 +175,8 @@ export default function ProductsSection() {
                 </span>
               </div>
 
-              {/* Price + Button */}
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.5rem' }}>
-                  <span style={{ fontSize: '1.25rem', fontWeight: 900, color: '#0f172a' }}>{product.price}</span>
-                  {product.originalPrice && (
-                    <span style={{ fontSize: '0.85rem', color: '#94a3b8', textDecoration: 'line-through' }}>{product.originalPrice}</span>
-                  )}
-                </div>
+              {/* Button */}
+              <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
                 <button
                   onClick={() => handleAdd(product.id)}
                   style={{
@@ -222,7 +204,7 @@ export default function ProductsSection() {
       </div>
 
       <p style={{ textAlign: 'center', marginTop: '2.5rem', color: '#94a3b8', fontSize: '0.9rem' }}>
-        Visit us in-store for full inventory and pricing. All accessories come with a 30-day warranty.
+        Visit us in-store for full inventory. All accessories come with a 30-day warranty.
       </p>
     </div>
   );

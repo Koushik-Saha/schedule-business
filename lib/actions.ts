@@ -103,11 +103,11 @@ export async function createStoreAction(formData: FormData) {
     longitude,
     theme: { primary: primaryColor, secondary: secondaryColor, accent: accentColor, font },
     services: [
-      { id: '1', name: 'iPhone Screen Repair', price: '$89 - $329' },
-      { id: '2', name: 'Samsung Screen Repair', price: '$109 - $399' },
-      { id: '3', name: 'Battery Replacement', price: '$49 - $119' },
-      { id: '4', name: 'Charging Port Repair', price: '$59 - $99' },
-      { id: '5', name: 'Water Damage Diagnostics', price: '$49 - $149' }
+      { id: '1', name: 'iPhone Screen Repair' },
+      { id: '2', name: 'Samsung Screen Repair' },
+      { id: '3', name: 'Battery Replacement' },
+      { id: '4', name: 'Charging Port Repair' },
+      { id: '5', name: 'Water Damage Diagnostics' }
     ],
     hours,
     notificationEmail
