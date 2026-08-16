@@ -221,17 +221,18 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
         zIndex: 100,
         padding: '0 2rem',
       }}>
-        <div style={{
+        <div className="header-nav" style={{
           maxWidth: '1280px',
           margin: '0 auto',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           height: '80px',
-          position: 'relative'
+          position: 'relative',
+          width: '100%'
         }}>
           {/* Logo container with slanted styling */}
-          <div style={{
+          <div className="header-logo" style={{
             background: 'white',
             padding: '0.8rem 2.5rem 0.8rem 1.5rem',
             marginRight: 'auto',
@@ -267,7 +268,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
           <div style={{ width: '220px' }}></div>
 
           {/* Brands Selection Tabs */}
-          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+          <div className="brands-tabs" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
             <button
               onClick={() => { setSelectedBrand('freedom'); setSelectedState(null); setSelectedCity(null); }}
               style={{
@@ -384,13 +385,14 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
         position: 'relative',
         overflow: 'hidden'
       }} className="hero-grid">
-        <div style={{
+        <div className="hero-content-grid" style={{
           maxWidth: '1280px',
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: '1.2fr 1fr',
           gap: '4rem',
-          alignItems: 'center'
+          alignItems: 'center',
+          width: '100%'
         }}>
           {/* Hero Left Content */}
           <div style={{ zIndex: 10 }}>
@@ -417,10 +419,11 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
             </p>
 
             {/* Interactive Search Bar */}
-            <div style={{
+            <div className="hero-search-wrapper" style={{
               position: 'relative',
               maxWidth: '620px',
-              marginBottom: '2rem'
+              marginBottom: '2rem',
+              width: '100%'
             }}>
               <div style={{
                 display: 'flex',
@@ -475,7 +478,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
             </div>
 
             {/* Quick Action Buttons */}
-            <div style={{ display: 'flex', gap: '1rem' }}>
+            <div className="hero-action-buttons" style={{ display: 'flex', gap: '1rem' }}>
               <button
                 onClick={requestLocation}
                 style={{
@@ -535,7 +538,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
             display: 'flex',
             justifyContent: 'center',
             zIndex: 10
-          }} className="float-animation">
+          }} className="float-animation hero-image-frame">
             <div style={{
               position: 'absolute',
               top: '-20px',
@@ -794,15 +797,13 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
                       setActiveStoreId(store.id);
                       setMapTab('map');
                     }}
+                    className="store-card"
                     style={{
                       background: '#ffffff',
                       borderRadius: '2rem',
                       border: isActive ? `2px solid var(--accent-color)` : '1px solid #e2e8f0',
                       boxShadow: isActive ? '0 15px 35px -5px rgba(59, 130, 246, 0.12)' : '0 4px 20px rgba(0,0,0,0.02)',
                       padding: '1.25rem',
-                      display: 'grid',
-                      gridTemplateColumns: '220px 1fr',
-                      gap: '1.5rem',
                       cursor: 'pointer',
                       position: 'relative',
                       transition: 'all 0.2s ease-in-out',
@@ -810,7 +811,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
                     }}
                   >
                     {/* Thumbnail wrapper with map position number badge */}
-                    <div style={{ position: 'relative', height: '170px', borderRadius: '1.25rem', overflow: 'hidden' }}>
+                    <div className="store-card-image">
                       <div style={{
                         position: 'absolute',
                         top: '0.75rem',
@@ -1156,12 +1157,13 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
         borderTop: '1px solid #e2e8f0',
         padding: '5rem 2rem',
       }}>
-        <div style={{
+        <div className="browse-grid" style={{
           maxWidth: '1280px',
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: '1fr 1fr',
-          gap: '4rem'
+          gap: '4rem',
+          width: '100%'
         }}>
           {/* Browse by State */}
           <div>
@@ -1277,13 +1279,14 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
         borderBottom: '1px solid rgba(255,255,255,0.05)',
         color: 'white'
       }}>
-        <div style={{
+        <div className="stats-grid" style={{
           maxWidth: '1280px',
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '2rem',
-          textAlign: 'center'
+          textAlign: 'center',
+          width: '100%'
         }}>
           <div>
             <h4 style={{ fontSize: '2rem', fontWeight: 900, color: 'var(--accent-color)', margin: '0 0 0.25rem 0' }}>100+ Locations</h4>
@@ -1311,13 +1314,14 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
         padding: '5rem 2rem 2rem 2rem',
         fontSize: '0.9rem'
       }}>
-        <div style={{
+        <div className="footer-grid" style={{
           maxWidth: '1280px',
           margin: '0 auto',
           display: 'grid',
           gridTemplateColumns: '1.5fr 1fr 1fr 1fr',
           gap: '4rem',
-          marginBottom: '4rem'
+          marginBottom: '4rem',
+          width: '100%'
         }}>
           {/* Col 1 */}
           <div>
@@ -1422,14 +1426,15 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
         </div>
 
         {/* Bottom copyright row */}
-        <div style={{
+        <div className="footer-bottom" style={{
           borderTop: '1px solid rgba(255,255,255,0.05)',
           paddingTop: '2rem',
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
           flexWrap: 'wrap',
-          gap: '1rem'
+          gap: '1rem',
+          width: '100%'
         }}>
           <span>© 2026 Our Store Network. All Rights Reserved.</span>
           <div style={{ display: 'flex', gap: '2rem' }}>
