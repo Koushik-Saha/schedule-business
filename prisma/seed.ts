@@ -93,7 +93,7 @@ const stores = [
     phone: '(805) 857-4226',
     email: 'sb@fixupllc.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/fixup-phone-repair.jpg',
+    imageUrl: '/images/fixup-santa-barbara.jpg',
     mapUrl: 'https://maps.google.com/maps?q=619+A+State+St+Santa+Barbara+CA+93101&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 34.4231,
     longitude: -119.6994,
