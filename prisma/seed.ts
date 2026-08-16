@@ -77,7 +77,7 @@ const stores = [
     phone: '(805) 857-4225',
     email: 'Support@fixupphone.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/fixup-phone-repair.jpg',
+    imageUrl: '/images/fixup-lynwood.jpg',
     mapUrl: 'https://maps.google.com/maps?q=3100+E+Imperial+Hwy+Store+M1002+Lynwood+CA+90262&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 33.9312,
     longitude: -118.2127,
