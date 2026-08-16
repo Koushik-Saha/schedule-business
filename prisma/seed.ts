@@ -61,7 +61,7 @@ const stores = [
     phone: '(818) 482-3605',
     email: 'Support@fixupphone.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/fixup-phone-repair.jpg',
+    imageUrl: '/images/fixup-las-vegas.jpg',
     mapUrl: 'https://maps.google.com/maps?q=905+S+Grand+Central+Pkwy+Las+Vegas+NV+89106&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 36.1648,
     longitude: -115.1583,
