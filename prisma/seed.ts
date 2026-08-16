@@ -173,7 +173,7 @@ const stores = [
     phone: '(424) 406-6202',
     email: 'support@maxphonefix.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/max-phone-repair.jpg',
+    imageUrl: '/images/max-phone-repair-town-square.jpg',
     mapUrl: 'https://maps.google.com/maps?q=7400+Las+Vegas+Blvd+S+Unit+TT38+Las+Vegas+NV+89123&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 36.0598,
     longitude: -115.1718,
