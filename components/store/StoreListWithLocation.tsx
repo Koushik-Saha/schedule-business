@@ -265,7 +265,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
           </div>
 
           {/* Spacer to push navbar menu to the right */}
-          <div style={{ width: '220px' }}></div>
+          <div className="header-spacer" style={{ width: '220px' }}></div>
 
           {/* Brands Selection Tabs */}
           <div className="brands-tabs" style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
