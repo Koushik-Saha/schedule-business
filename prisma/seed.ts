@@ -141,7 +141,7 @@ const stores = [
     phone: '(818) 482-3605',
     email: 'support@maxphonefix.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/max-body-jewelry.jpg',
+    imageUrl: '/images/max-body-jewelry-west-covina.jpg',
     mapUrl: 'https://maps.google.com/maps?q=112+Plaza+Dr+292+West+Covina+CA+91790&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 34.0699,
     longitude: -117.9272,
