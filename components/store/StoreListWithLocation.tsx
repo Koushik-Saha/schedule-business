@@ -425,7 +425,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
               marginBottom: '2rem',
               width: '100%'
             }}>
-              <div style={{
+              <div className="search-bar-inner" style={{
                 display: 'flex',
                 alignItems: 'center',
                 background: '#ffffff',
@@ -434,25 +434,27 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
                 boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
                 border: '1px solid rgba(255,255,255,0.1)'
               }}>
-                <div style={{ paddingLeft: '1.25rem', display: 'flex', alignItems: 'center', color: '#94a3b8' }}>
-                  <Search size={22} />
+                <div className="search-input-wrapper" style={{ display: 'flex', alignItems: 'center', flex: 1, width: '100%' }}>
+                  <div style={{ paddingLeft: '1.25rem', display: 'flex', alignItems: 'center', color: '#94a3b8' }}>
+                    <Search size={22} />
+                  </div>
+                  <input
+                    type="text"
+                    placeholder="Enter ZIP Code, City, or Area..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    style={{
+                      width: '100%',
+                      border: 'none',
+                      background: 'transparent',
+                      padding: '1rem',
+                      fontSize: '1.15rem',
+                      fontWeight: 500,
+                      color: '#0f172a',
+                      outline: 'none'
+                    }}
+                  />
                 </div>
-                <input
-                  type="text"
-                  placeholder="Enter ZIP Code, City, or Area..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  style={{
-                    width: '100%',
-                    border: 'none',
-                    background: 'transparent',
-                    padding: '1rem',
-                    fontSize: '1.15rem',
-                    fontWeight: 500,
-                    color: '#0f172a',
-                    outline: 'none'
-                  }}
-                />
                 <button
                   onClick={() => setSearchQuery(searchQuery)}
                   style={{
@@ -898,7 +900,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
                       </div>
 
                       {/* Tags & Action Buttons Footer */}
-                      <div style={{
+                      <div className="store-card-footer" style={{
                         display: 'flex',
                         justifyContent: 'space-between',
                         alignItems: 'center',
@@ -931,7 +933,7 @@ export default function StoreListWithLocation({ initialStores }: StoreListWithLo
                         </div>
 
                         {/* Card CTA Actions */}
-                        <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                        <div className="store-card-actions" style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
                           {store.distance !== Infinity && (
                             <span style={{ fontSize: '0.8rem', color: '#64748b', fontWeight: 600 }}>
                               {store.distance.toFixed(1)} miles away

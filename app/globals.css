@@ -197,11 +197,19 @@ a {
   }
   
   .brands-tabs {
-    width: 100%;
-    overflow-x: auto;
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: auto !important;
     padding: 0.5rem 1rem !important;
     justify-content: flex-start;
     scrollbar-width: none; /* Hide scrollbar for clean scrollable tabs */
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .brands-tabs button {
+    flex-shrink: 0 !important;
   }
   
   .brands-tabs::-webkit-scrollbar {
@@ -219,6 +227,19 @@ a {
   .store-card-image {
     height: 200px;
   }
+  
+  .store-card-footer {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 1.25rem !important;
+  }
+  
+  .store-card-actions {
+    width: 100% !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
 }
 
 /* Small Mobile (<= 480px) */
@@ -227,14 +248,29 @@ a {
     font-size: 2.2rem !important;
   }
   
-  .hero-search-wrapper input {
-    font-size: 1rem !important;
-    padding: 0.75rem !important;
+  .search-bar-inner {
+    flex-direction: column !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    width: 100% !important;
+    gap: 0.75rem !important;
   }
   
-  .hero-search-wrapper button {
-    padding: 0.75rem 1.25rem !important;
-    font-size: 0.95rem !important;
+  .search-input-wrapper {
+    background: #ffffff !important;
+    border-radius: 1.5rem !important;
+    width: 100% !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+    border: 1px solid rgba(226,232,240,0.8) !important;
+  }
+  
+  .search-bar-inner button {
+    width: 100% !important;
+    border-radius: 1.5rem !important;
+    justify-content: center !important;
+    padding: 1rem !important;
   }
   
   .hero-action-buttons {
