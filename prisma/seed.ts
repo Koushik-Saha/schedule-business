@@ -157,7 +157,7 @@ const stores = [
     phone: '(805) 857-4223',
     email: 'support@maxphonefix.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/max-phone-repair.jpg',
+    imageUrl: '/images/max-phone-repair-grand-central.jpg',
     mapUrl: 'https://maps.google.com/maps?q=775+S+Grand+Central+Pkwy+Unit+95+Las+Vegas+NV+89106&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 36.1627,
     longitude: -115.1592,
