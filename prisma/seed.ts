@@ -189,7 +189,7 @@ const stores = [
     phone: '(818) 482-3605',
     email: 'support@maxphonefix.com',
     notificationEmail: 'rakibul2237@gmail.com',
-    imageUrl: '/images/max-phone-repair.jpg',
+    imageUrl: '/images/max-phone-repair-outlet-54.jpg',
     mapUrl: 'https://maps.google.com/maps?q=875+S+Grand+Central+Pkwy+Unit+54+Las+Vegas+NV+89106&t=&z=15&ie=UTF8&iwloc=&output=embed',
     latitude: 36.1638,
     longitude: -115.1588,
